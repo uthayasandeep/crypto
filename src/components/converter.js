@@ -18,7 +18,7 @@ const Converter = () => {
         params: {to_currency: choosensc, function: 'CURRENCY_EXCHANGE_RATE', from_currency: choosenpc},
         headers: {
         'x-rapidapi-host': 'alpha-vantage.p.rapidapi.com',
-        'x-rapidapi-key': 'c95bab924amshb5b241ac699ec74p1b024fjsn30b54492f4c3'
+        'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
   }
 }
 
@@ -31,6 +31,10 @@ axios.request(options).then((response)=> {
 })
 }
 console.log(exchangeRate)
+
+
+
+
     return (
       <div className="currency-converter">
         <h2>Currenct Converter</h2>
@@ -84,6 +88,7 @@ console.log(exchangeRate)
             </tbody>
         </table>
         <button id = "convert-button" onClick={convert}>Convert</button>
+        
         </div> 
         
         <ExchangeRate
